@@ -1,0 +1,27 @@
+<div class="row h-100 justify-content-center align-items-center bg-primary">
+    <div class="col-12 col-md-6 col-lg-4 col-xl-3">
+        <div class="card p-3 bg-white border-0 shadow">
+            <div class="card-title">
+                <h5>Login</h5>
+            </div>
+            <div class="card-body">
+                <form [formGroup]="loginForm" (submit)="authenticate()">
+                    <div class="form-group mb-3">
+                        <label for="username">User Name</label>
+                        <input type="text" class="form-control" formControlName="username" id="username"
+                            placeholder="Enter username">
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="password">Password</label>
+                        <input type="password" class="form-control" formControlName="password" id="password"
+                            placeholder="Enter password">
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100" [disabled]="loginForm.invalid">Submit</button>
+                </form>
+            </div>
+        </div>
+        <div class="alert alert-danger my-3" role="alert" *ngIf="userNotFound">
+            {{loginForm.value.username}} is not found in our database.
+        </div>
+    </div>
+</div>

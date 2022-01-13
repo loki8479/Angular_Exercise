@@ -1,0 +1,55 @@
+<div class="row bg-primary justify-content-center">
+    <div class="col-12 col-md-10 col-lg-8">
+        <div class="card border-0 shadow-lg p-4 rounded-3 bg-white my-5">
+            <div class="row gx-0 justify-content-between">
+                <div class="col-11">
+                    <input type="text" class="form-control h-100" placeholder="Search by name/population"
+                        (input)="searchplanet($event)">
+                </div>
+                <button class="btn btn-primary rounded-circle col-sm-1 logout" (click)="logout()">
+                    <img src="../../../assets/icons/sign-out.svg">
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="col-12 p-0">
+        <div class="planets bg-white">
+            <div class="row gx-0">
+                <div class="col-12 col-md-6 col-lg-4 col-xl-3" *ngFor="let planet of filteredPlanets">
+                    <div class="card planet bg-white rounded-0 p-3 cursor-pointer" data-bs-toggle="modal"
+                        data-bs-target="#detailsModal" (click)="showPlanetDetails(planet)">
+                        <div class="card-title">
+                            <strong>Name:</strong> {{planet.name}}
+                        </div>
+                        <div class="card-title">
+                            <strong>Population:</strong> {{planet.population}}
+                        </div>
+                        <div class="card-title">
+                            <strong>Climate:</strong> {{planet.climate}}
+                        </div>
+                        <div class="card-title">
+                            <strong>Gravity:</strong> {{planet.gravity}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Planet Details Modal -->
+<div class="modal fade" id="detailsModal" tabindex="-1" aria-labelledby="detailsModalLabel" aria-hidden="true"
+    data-bs-backdrop="static" data-bs-keyboard="false">
+    <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="detailsModalLabel">{{planetDetails.name}}</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                    (close)="closeDetails()"></button>
+            </div>
+            <div class="modal-body">
+                <pre>{{planetDetails | json}}</pre>
+            </div>
+        </div>
+    </div>
+</div>

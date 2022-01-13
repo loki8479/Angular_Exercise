@@ -1,0 +1,21 @@
+.logout {
+  width: 46px;
+  height: 46px;
+  img {
+    width: 20px;
+    vertical-align: sub;
+  }
+}
+
+.planets {
+  .planet {
+    &:hover {
+      box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175) !important;
+      z-index: 99;
+    }
+  }
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
